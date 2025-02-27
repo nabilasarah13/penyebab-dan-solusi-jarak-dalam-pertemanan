@@ -1944,53 +1944,53 @@ html, body {
 
 
 @media screen and (max-width: 900px) {
-    .tarot-card.small-corner {
-      position: fixed;
-      bottom: 20px;    /* Jarak 20px dari bawah layar */
-      right: 20px;     /* Jarak 20px dari kanan layar */
-      top: auto;
-      left: auto;
-      width: 90px;    /* Ukuran dikurangi, misal setengah */
-      height: 165px;
-      transform: none; /* Hapus transform centering */
-    }
-  	#story {
-    	width: 93vw;
-  	}
-  	.card-container {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        height: 100vh !important;
-        position: fixed;
-      	transform: translateX(10%) translateY(0px);
+  .tarot-card.small-corner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+    width: 90px;
+    height: 165px;
+    transform: none;
   }
-    .card {
-        width: 306px !important;
-        height: 209px !important;
-        padding: 15px;
-    }
-    .halo-banner {
-        padding: 8px 12px!important;
-        font-size: 12px!important;
-        border-radius: 80px!important;
-    }
-
-    .tarot-welcome {
-        font-size: 1.2rem!important;
-        padding: 6px 10px!important;
-    }
-
-    .halo-text {
-        font-size: 18px!important;
-    }
-
-    .card-container {
-        display: flex!important;
-        justify-content: center!important;
-        align-items: center!important;
-    }
+  
+  #story {
+    width: 93vw;
+  }
+  
+  .card-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+    position: fixed;
+    /* Hapus transform di sini agar tidak bergeser */
+    transform: none;
+  }
+  
+  .card {
+    width: 306px !important;
+    height: 209px !important;
+    padding: 15px;
+  }
+  
+  .halo-banner {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    border-radius: 80px !important;
+  }
+  
+  .tarot-welcome {
+    font-size: 1.2rem !important;
+    padding: 6px 10px !important;
+  }
+  
+  .halo-text {
+    font-size: 18px !important;
+  }
 }
+
 
 
 .tarot-welcome {
@@ -2371,12 +2371,6 @@ html, body {
 .flash-container .flash-message.dark-theme .flash-progress {
     background-color: rgba(255, 255, 255, 0.5);
 }
-
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 
 /* 🎴 Banner dengan Efek Fade */
 .banner {
