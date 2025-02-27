@@ -98,12 +98,54 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Penyebab &amp; Solusi Jarak dalam Pertemanan" startnode="1" creator="Twine" creator-version="2.8.0" format="SugarCube" format-version="2.36.1" ifid="43B038EF-BB90-4BB9-BFA8-796AA636774A" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+	<tw-storydata name="Penyebab &amp; Solusi Jarak dalam Pertemanan" startnode="1" creator="Twine" creator-version="2.8.0" format="SugarCube" format-version="2.36.1" ifid="43B038EF-BB90-4BB9-BFA8-796AA636774A" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+a.link-external:after {
+    content: none;
+}
+
+.storycaption {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Cinzel', serif;
+  margin: 30px auto;
+  max-width: 600px;
+  color: #000;
+}
+
+#menu-item-saves, #menu-item-restart {
+	display: none;
+}
+
+.caption-text {
+  font-size: 18px;
+  color: #000;
+  margin: 0;
+}
+
+.contact-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #e1bee7;
+}
+
+.contact-link i {
+  margin-right: 8px;
+}
 
 .conclusion-container {
   position: absolute;
@@ -1506,6 +1548,9 @@ html, body {
         justify-content: center!important;
         align-items: center!important;
     }
+  .card-front, .card-back {
+	top: -51%;
+    left: -62px;
 }
 
 
@@ -3799,10 +3844,25 @@ document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
   &lt;source src=&quot;audio/Catatan.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;
   &lt;/div&gt;
+  &lt;div class=&quot;storycaption&quot;&gt;
+  &lt;p class=&quot;caption-text&quot;&gt;
+    Hubungi Aimee:
+    &lt;a class=&quot;contact-link&quot; href=&quot;https://wa.me/6282128910455&quot; target=&quot;_blank&quot;&gt;
+      &lt;i class=&quot;fab fa-whatsapp&quot;&gt;&lt;/i&gt; WhatsApp
+    &lt;/a&gt;\
+    &lt;a class=&quot;contact-link&quot; href=&quot;https://t.me/tennie1313&quot; target=&quot;_blank&quot;&gt;
+      &lt;i class=&quot;fab fa-telegram-plane&quot;&gt;&lt;/i&gt; Telegram
+    &lt;/a&gt;\
+    &lt;a class=&quot;contact-link&quot; href=&quot;https://padlet.com/tarotaimee/tarotnyaaimee&quot; target=&quot;_blank&quot;&gt;
+      Testimoni
+    &lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
 &lt;&lt;button [[Halaman Pertanyaan|Log Pertanyaan dan Spread]]&gt;&gt;&lt;&lt;/button&gt;&gt;
       &lt;&lt;button [[Apa akar penyebab utama hubungan menjadi renggang?]]&gt;&gt;&lt;&lt;/button&gt;&gt;
     &lt;&lt;button [[Bagaimana perasaan Stephanie tentang hubungan ini?]]&gt;&gt;&lt;&lt;/button&gt;&gt;
     &lt;&lt;button [[Apa yang bisa dilakukan untuk memperbaiki hubungan ini?]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+  
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="9" name="widget" tags="widget" position="1075,425" size="100,100">&lt;&lt;widget aries&gt;&gt;
 \&lt;span class=&quot;zodiac&quot; data-tooltip=&quot;Yumemichi (14 April 2001) 🌿Elemen: Api ✨ Cepat bosan, penuh semangat, suka tantangan.&quot;&gt;Aries&lt;/span&gt;\
