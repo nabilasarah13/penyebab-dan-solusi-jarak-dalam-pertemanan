@@ -1909,21 +1909,16 @@ html, body {
     width: 93vw;
   }
   
-  .card-container {
+.card-container {
+  top: -130px;
+  left: -50px; 
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     height: 100vh !important;
     position: fixed;
     transform: none;
-  }
-  
-  .card {
-    width: 306px !important;
-    height: 209px !important;
-    padding: 15px;
-  }
-  
+  }  
   .halo-banner {
     padding: 8px 12px !important;
     font-size: 12px !important;
@@ -1942,7 +1937,3119 @@ html, body {
   /* Hapus transform translate(-50%, -50%) agar tidak konflik dengan flip */
   .card-front, .card-back {
     position: absolute;
-    top: -50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Jangan menetapkan transform centering di sini */
+  }
+}
+.tarot-welcome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(147, 112, 219, 0.6); 
+    opacity: 0;
+    animation: fadeInGlow 3s ease-in-out forwards, pulseGlow 5s infinite alternate ease-in-out;
+
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.4); /* Putih Transparan */
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Efek Blur */
+}
+
+@keyframes fadeInGlow {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(147, 112, 219, 0.6); }
+    100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(147, 112, 219, 1); }
+}
+
+@keyframes fadeInBounce {
+            0% { opacity: 0; transform: translateY(-10px); }
+            50% { opacity: 0.5; transform: translateY(5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+          	color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #5D4157, #A8CABA);
+            font-family: 'Arial', sans-serif;
+        }
+        .card-container {
+            perspective: 1000px;
+          	transform: translateX(28%) translateY(130px);
+        }
+        .card {
+            width: 400px;
+            height: 320px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform-style: preserve-3d;
+    		transition: opacity 1.5s ease-in-out, transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+.card:hover {
+    transform: scale(1.02) rotate(0.5deg);
+}
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        .card-front {
+            background-image: url("image/frontcard.jpg");
+          	background-size: cover;
+          	background-repeat: no-repeat;
+        }
+.halo-banner {
+  	font-family: 'Cinzel Decorative', serif;
+    position: relative;
+    padding: 15px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 150px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 
+                0 0 30px rgba(100, 100, 255, 0.2); /* Efek aura glowing */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Efek shimmer animasi di border */
+@keyframes shimmer {
+    0% { border-color: rgba(255, 255, 255, 0.5); }
+    50% { border-color: rgba(100, 100, 255, 0.8); }
+    100% { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+.halo-banner::after {
+    content: "";
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border-radius: 150px;
+    border: 3px solid transparent;
+    animation: shimmer 3s infinite alternate;
+}
+        .halo-text {
+            font-size: 18px;
+            font-style: italic;
+            animation: fadeInBounce 2s ease-in-out;
+        }
+
+.card-back {
+    background-image: url("image/tekstur.jpg");
+  	background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; /* Sesuaikan ukuran sesuai kebutuhan */
+    color: #4a2c2a; /* Warna earthy untuk kesan warm */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: rotateY(180deg);
+    transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* Saat kartu terbuka */
+.card.flipped .card-back {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+/* Styling tombol */
+.card-back button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background: #9c6b4a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-back button:hover {
+    background: #b47c5b;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* FLASH JS THEME VARIABLES */
+.flash-container {
+    z-index: 1000;
+    max-width: 25%;
+    position: fixed;
+}
+.top-left-flash-layout {
+    top: 75px;
+    left: 15px;
+}
+.top-right-flash-layout {
+    top: 75px;
+    right: 15px;
+}
+.middle-right-flash-layout {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+.bottom-right-flash-layout {
+    bottom: 75px;
+    right: 15px;
+}
+.middle-bottom-flash-layout {
+    bottom: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom-left-flash-layout {
+    bottom: 75px;
+    left: 15px;
+}
+.middle-left-flash-layout {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+.middle-top-flash-layout {
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* FLASHJS - DEFAULT THEME */
+.flash-container .flash-message {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all .5s;
+    background-color: #fff;
+    color: #2C3433;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-bottom: 10px;
+    padding: 5px 35px 5px 20px;
+    box-shadow: 2px 2px 33px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+    cursor: pointer;
+}
+.flash-container .flash-message .flash-text {
+    font-size: 1em;
+}
+.flash-container .flash-not-interactive {
+    cursor: default;
+}
+.flash-container .flash-message .flash-progress {
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: opacity .1s;
+}
+.flash-container .flash-message .flash-progress.flash-is-hidden {
+    opacity: 0;
+}
+.flash-container .flash-message .flash-progress.flash-progress-top {
+    top: 0;
+    bottom: auto;
+}
+.flash-container .flash-message:before {
+    position: absolute;
+    content: '';
+    width: 7px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: -7px;
+    background-color: transparent;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.flash-container .flash-message:after {
+    position: absolute;
+    content: '';
+    font-family: 'tme-fa-icons';
+    top: 5px;
+    right: 8px;
+    text-align: center;
+    vertical-align: middle;
+    color: #9e9e9e;
+}
+.flash-container .flash-message.flash-is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* SUCCESS */
+.flash-container .flash-message.flash-success .flash-progress {
+    background-color: rgba(76, 175, 80, 0.15);
+}
+.flash-container .flash-message.flash-success:before {
+    background-color: #4CAF50;
+}
+.flash-container .flash-message.flash-success:after {
+    color: rgba(76, 175, 80, 0.5);
+    content: '\e803';
+}
+/* WARNING */
+.flash-container .flash-message.flash-warning .flash-progress {
+    background-color: rgba(255, 133, 27, 0.15);
+}
+.flash-container .flash-message.flash-warning:before {
+    background-color: #FF851B;
+}
+.flash-container .flash-message.flash-warning:after {
+    color: rgba(255, 133, 27, 0.5);
+    content: '\e80d';
+}
+/* ERROR */
+.flash-container .flash-message.flash-error .flash-progress {
+    background-color: rgba(255, 65, 54, 0.15);
+}
+.flash-container .flash-message.flash-error:before {
+    background-color: #FF4136;
+}
+.flash-container .flash-message.flash-error:after {
+    color: rgba(255, 65, 54, 0.5);
+    content: '\e80c';
+}
+/* INFO */
+.flash-container .flash-message.flash-info .flash-progress {
+    background-color: rgba(0, 116, 217, 0.15);
+}
+.flash-container .flash-message.flash-info:before {
+    background-color: #0074D9;
+}
+.flash-container .flash-message.flash-info:after {
+    color: rgba(0, 116, 217, 0.5);
+    content: '\e80a';
+}
+/* BUG */ 
+.flash-container .flash-message.flash-bug .flash-progress {
+    background-color: rgba(138, 43, 226, 0.15);
+}
+.flash-container .flash-message.flash-bug:before {
+    background-color: #8A2BE2;
+}
+.flash-container .flash-message.flash-bug:after {
+    color: rgba(138, 43, 226, 0.5);
+    content: '\e838';
+}
+/* DISABLED */
+.flash-container .flash-message.flash-disabled .flash-progress {
+    background-color: rgba(170, 170, 170, 0.15);
+}
+.flash-container .flash-message.flash-disabled:before {
+    background-color: #aaa;
+}
+.flash-container .flash-message.flash-disabled:after {
+    color: rgba(170, 170, 170, 0.5);
+    content: '\e80f';
+    font-family: "tme-fa-icons";
+}
+/* DEFAULT */ 
+.flash-container .flash-message.flash-default {
+    padding-right: 20px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+/* MEDIA */
+@media all and (max-width: 1280px) {
+    .flash-container {
+        max-width: 33.33%;
+   }
+}
+@media all and (max-width: 768px) {
+    .flash-container {
+        max-width: 50%;
+   }
+}
+@media all and (max-width: 480px) {
+    .flash-container {
+        right: 10px;
+        left: 10px;
+        max-width: 100%;
+   }
+}
+/* FLASH JS DARK THEME */
+.flash-container .flash-message.dark-theme {
+    background-color: #2C3433;
+    color: #fff;
+}
+.flash-container .flash-message.dark-theme .flash-progress {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 🎴 Banner dengan Efek Fade */
+.banner {
+    background: rgba(138, 43, 226, 0.75); /* Violet dengan 75% opacity */
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    
+    /* Efek Gradien Transparan di Samping */
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), black 20%, black 80%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), black 20%, black 80%, rgba(0, 0, 0, 0));
+}
+
+/* 🔮 Efek Cahaya Bergerak */
+@keyframes glow {
+    0% { box-shadow: 0px 0px 10px 2px rgba(138, 43, 226, 0.75); }
+    50% { box-shadow: 0px 0px 20px 4px rgba(138, 43, 226, 1); }
+    100% { box-shadow: 0px 0px 10px 2px rgba(138, 43, 226, 0.75); }
+}
+
+.banner {
+    animation: glow 3s infinite alternate;
+}
+
+
+
+/* 🌌 Efek Background */
+body.satu {
+    background: linear-gradient(to bottom, #0d0d0d, #3a2753); /* Gelap ke ungu */
+    color: #f5f5f5;
+    font-family: "Cinzel", serif; /* Font bernuansa mistis */
+}
+
+/* 🔮 Efek Glitch pada Judul */
+.glitch {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
+    50% { text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff; }
+    100% { text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container utama */
+.stack-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Kartu ketika berubah ke posisi kecil di sudut */
+.tarot-card.small-corner {
+  position: fixed;
+  bottom: 20px;    /* Jarak 20px dari bawah layar */
+  right: 20px;     /* Jarak 20px dari kanan layar */
+  top: auto;
+  left: auto;
+  width: 150px;    /* Ukuran dikurangi, misal setengah */
+  height: 225px;
+  transform: none; /* Hapus transform centering */
+}
+
+
+/* Posisi kartu tetap di tengah */
+.tarot-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 450px;
+  perspective: 1000px;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.8s ease-in-out;  /* Animasi transisi */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+/* Efek flip (jika diperlukan, tapi nanti tombol akan diklik untuk menghilangkan kartu) */
+.tarot-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Konsistensi styling untuk kedua sisi kartu */
+.fool-front,
+.fool-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Sisi depan (The Fool) – disembunyikan secara default dengan rotasi */
+.fool-front {
+  background: url('image/The Fool.jpg') center/cover no-repeat;
+  transform: rotateY(180deg);
+}
+
+/* Sisi belakang – yang tampil default */
+.fool-back {
+  background: url('image/back.webp') center/cover no-repeat;
+}
+
+/* Tombol reading-btn di bagian bawah kartu */
+.reading-btn {
+  display: inline-block;
+  position: absolute;
+  bottom: 20px;   /* posisi akhir tombol */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* posisi awal sedikit di atas */
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #E6D2A3, #C4A77D);
+  border: 2px solid #8B5A2B;
+  border-radius: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #4A3F35;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  opacity: 0; /* awalnya tersembunyi */
+  width: auto;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect untuk reading-btn */
+.reading-btn:hover {
+  transform: translateX(-50%) translateY(-10px) scale(1.05);
+  background: linear-gradient(180deg, #C4A77D, #8B5A2B);
+}
+
+/* Animasi slideDown & fadeIn untuk reading-btn ketika kartu di-flip */
+.tarot-card.flipped .fool-front .reading-btn {
+  animation: slideDown 0.8s forwards ease-out 0.3s;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.reading-btn {
+    display: inline-block;
+    position: absolute;
+    bottom: -64px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-30px);
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D);
+    border: 2px solid #8B5A2B;
+    border-radius: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4A3F35;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    width: 313px;
+}
+
+/* Saat kartu di-flip, animasi slideDown dijalankan */
+.tarot-card.flipped .fool-front .reading-btn {
+  animation: slideDown 0.8s forwards ease-out 0.3s;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+
+.spread-title {
+    font-size: 29px;
+    font-family: 'Cinzel Decorative', cursive;
+  	font-weight: bold;
+    color: #D4AF37; /* Gold */
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.85);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-box {
+    position: relative !important;
+    animation: fadeIn 1s ease-in-out;
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D); /* Gradasi krem & emas */
+    border: 3px solid #8B5A2B; /* Garis tepi emas klasik */
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #4A3F35;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+    position: relative;
+  	border: 4px solid #8B4513; /* Dark Brown */
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(139, 69, 19, 0.7);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+    overflow: auto; /* Pastikan bisa scroll */
+}
+
+.question-box p {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #FFD700;
+}
+
+
+/* Efek glow mistis */
+.question-box::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: glowingBox 1.5s infinite alternate ease-in-out;
+}
+
+/* Animasi Glow */
+@keyframes glowingBox {
+    0% { box-shadow: 0 0 8px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 18px rgba(255, 215, 0, 1); }
+}
+
+/* Efek Fade In */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#story {
+  margin: 0!important;
+  padding: 0!important;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.question-box {
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+body.satu {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.stack-container {
+  flex: 1;
+  width: 100%;
+}
+
+/* Gaya "Q" Klasik */
+.q-icon {
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    font-size: 90px;
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #8B0000; /* Merah marun tua */
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    transform: rotate(-10deg);
+}
+
+/* Desain Button: Antik & Klasik */
+button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4A3F35; /* Warna coklat tua ala tinta kuno */
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D); /* Gradasi krem & emas */
+    border: 2px solid #8B5A2B; /* Garis tepi emas klasik */
+    border-radius: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  	z-index: 10;
+}
+
+/* Efek Hover */
+button:hover {
+    background: linear-gradient(180deg, #C4A77D, #8B5A2B);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fancy-underline {
+    display: inline-block;
+    position: relative;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: #D4AF37; /* Emas */
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+.fancy-underline::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    margin-top: 5px;
+    border-radius: 50px;
+}
+
+.scroll-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.8), 0 0 10px rgba(90, 74, 66, 0.5);
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeInGlow 2.5s ease-in-out forwards, shimmerGlow 4s infinite alternate ease-in-out;
+}
+
+/* Efek fade in */
+@keyframes fadeInGlow {
+    0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Efek cahaya halus */
+@keyframes shimmerGlow {
+    0% { text-shadow: 0 0 5px rgba(212, 175, 55, 0.6), 0 0 10px rgba(90, 74, 66, 0.3); }
+    100% { text-shadow: 0 0 10px rgba(212, 175, 55, 1), 0 0 15px rgba(90, 74, 66, 0.7); }
+}
+.scroll-container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: url('image/scroll.jpg') no-repeat center center / cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2c1d1d;
+    opacity: 0;
+    animation: fadeInScroll 2s ease-in-out forwards;
+  	top: 190px;
+}
+
+@keyframes fadeInScroll {
+    0% { opacity: 0; transform: scaleY(0); }
+    100% { opacity: 1; transform: scaleY(1); }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: scroll!important;
+}
+
+.container {
+	z-index: -1;
+  	pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 101vh;
+}
+
+.container img, .container video {
+    position: absolute;
+    width: 100%;
+    height: 101%;
+    min-width: 100vw;
+    min-height: 101vh;
+    object-fit: cover;
+}
+
+.container video {
+    transform: translateZ(0);
+}
+
+.container img {
+  position: absolute!important;
+  mix-blend-mode: screen;
+  background-size: cover;
+  top: -10px;
+}
+
+.container video {
+  position: inherit;
+  background-repeat: repeat;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+
+.container video:nth-child(2) {
+  mix-blend-mode: screen;
+}
+
+.textbox {
+    font-family: 'Cormorant Garamond', serif;
+    background: rgba(30, 10, 50, 0.8); /* Dark purple transparan */
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    color: white;
+    text-align: justify;
+    line-height: 1.8;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(138, 43, 226, 0.5);
+    border-left: 3px solid rgba(138, 43, 226, 0.8);
+    border-right: 3px solid rgba(138, 43, 226, 0.8);
+
+    /* Efek Glowing */
+    animation: glowBox 2.5s infinite alternate;
+}
+
+/* ✨ Animasi Cahaya */
+@keyframes glowBox {
+    0% { box-shadow: 0px 0px 10px rgba(138, 43, 226, 0.5); }
+    100% { box-shadow: 0px 0px 25px rgba(138, 43, 226, 0.9); }
+}
+.tarot-welcome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(147, 112, 219, 0.6); 
+    opacity: 0;
+    animation: fadeInGlow 3s ease-in-out forwards, pulseGlow 5s infinite alternate ease-in-out;
+
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.4); /* Putih Transparan */
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Efek Blur */
+}
+
+@keyframes fadeInGlow {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(147, 112, 219, 0.6); }
+    100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(147, 112, 219, 1); }
+}
+
+@keyframes fadeInBounce {
+            0% { opacity: 0; transform: translateY(-10px); }
+            50% { opacity: 0.5; transform: translateY(5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+          	color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #5D4157, #A8CABA);
+            font-family: 'Arial', sans-serif;
+        }
+        .card-container {
+            perspective: 1000px;
+          	transform: translateX(28%) translateY(130px);
+        }
+        .card {
+            width: 400px;
+            height: 320px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform-style: preserve-3d;
+    		transition: opacity 1.5s ease-in-out, transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+.card:hover {
+    transform: scale(1.02) rotate(0.5deg);
+}
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        .card-front {
+            background-image: url("image/frontcard.jpg");
+          	background-size: cover;
+          	background-repeat: no-repeat;
+        }
+.halo-banner {
+  	font-family: 'Cinzel Decorative', serif;
+    position: relative;
+    padding: 15px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 150px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 
+                0 0 30px rgba(100, 100, 255, 0.2); /* Efek aura glowing */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Efek shimmer animasi di border */
+@keyframes shimmer {
+    0% { border-color: rgba(255, 255, 255, 0.5); }
+    50% { border-color: rgba(100, 100, 255, 0.8); }
+    100% { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+.halo-banner::after {
+    content: "";
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border-radius: 150px;
+    border: 3px solid transparent;
+    animation: shimmer 3s infinite alternate;
+}
+        .halo-text {
+            font-size: 18px;
+            font-style: italic;
+            animation: fadeInBounce 2s ease-in-out;
+        }
+
+.card-back {
+    background-image: url("image/tekstur.jpg");
+  	background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; /* Sesuaikan ukuran sesuai kebutuhan */
+    color: #4a2c2a; /* Warna earthy untuk kesan warm */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: rotateY(180deg);
+    transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* Saat kartu terbuka */
+.card.flipped .card-back {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+/* Styling tombol */
+.card-back button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background: #9c6b4a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-back button:hover {
+    background: #b47c5b;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* FLASH JS THEME VARIABLES */
+.flash-container {
+    z-index: 1000;
+    max-width: 25%;
+    position: fixed;
+}
+.top-left-flash-layout {
+    top: 75px;
+    left: 15px;
+}
+.top-right-flash-layout {
+    top: 75px;
+    right: 15px;
+}
+.middle-right-flash-layout {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+.bottom-right-flash-layout {
+    bottom: 75px;
+    right: 15px;
+}
+.middle-bottom-flash-layout {
+    bottom: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom-left-flash-layout {
+    bottom: 75px;
+    left: 15px;
+}
+.middle-left-flash-layout {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+.middle-top-flash-layout {
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* FLASHJS - DEFAULT THEME */
+.flash-container .flash-message {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all .5s;
+    background-color: #fff;
+    color: #2C3433;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-bottom: 10px;
+    padding: 5px 35px 5px 20px;
+    box-shadow: 2px 2px 33px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+    cursor: pointer;
+}
+.flash-container .flash-message .flash-text {
+    font-size: 1em;
+}
+.flash-container .flash-not-interactive {
+    cursor: default;
+}
+.flash-container .flash-message .flash-progress {
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: opacity .1s;
+}
+.flash-container .flash-message .flash-progress.flash-is-hidden {
+    opacity: 0;
+}
+.flash-container .flash-message .flash-progress.flash-progress-top {
+    top: 0;
+    bottom: auto;
+}
+.flash-container .flash-message:before {
+    position: absolute;
+    content: '';
+    width: 7px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: -7px;
+    background-color: transparent;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.flash-container .flash-message:after {
+    position: absolute;
+    content: '';
+    font-family: 'tme-fa-icons';
+    top: 5px;
+    right: 8px;
+    text-align: center;
+    vertical-align: middle;
+    color: #9e9e9e;
+}
+.flash-container .flash-message.flash-is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* SUCCESS */
+.flash-container .flash-message.flash-success .flash-progress {
+    background-color: rgba(76, 175, 80, 0.15);
+}
+.flash-container .flash-message.flash-success:before {
+    background-color: #4CAF50;
+}
+.flash-container .flash-message.flash-success:after {
+    color: rgba(76, 175, 80, 0.5);
+    content: '\e803';
+}
+/* WARNING */
+.flash-container .flash-message.flash-warning .flash-progress {
+    background-color: rgba(255, 133, 27, 0.15);
+}
+.flash-container .flash-message.flash-warning:before {
+    background-color: #FF851B;
+}
+.flash-container .flash-message.flash-warning:after {
+    color: rgba(255, 133, 27, 0.5);
+    content: '\e80d';
+}
+/* ERROR */
+.flash-container .flash-message.flash-error .flash-progress {
+    background-color: rgba(255, 65, 54, 0.15);
+}
+.flash-container .flash-message.flash-error:before {
+    background-color: #FF4136;
+}
+.flash-container .flash-message.flash-error:after {
+    color: rgba(255, 65, 54, 0.5);
+    content: '\e80c';
+}
+/* INFO */
+.flash-container .flash-message.flash-info .flash-progress {
+    background-color: rgba(0, 116, 217, 0.15);
+}
+.flash-container .flash-message.flash-info:before {
+    background-color: #0074D9;
+}
+.flash-container .flash-message.flash-info:after {
+    color: rgba(0, 116, 217, 0.5);
+    content: '\e80a';
+}
+/* BUG */ 
+.flash-container .flash-message.flash-bug .flash-progress {
+    background-color: rgba(138, 43, 226, 0.15);
+}
+.flash-container .flash-message.flash-bug:before {
+    background-color: #8A2BE2;
+}
+.flash-container .flash-message.flash-bug:after {
+    color: rgba(138, 43, 226, 0.5);
+    content: '\e838';
+}
+/* DISABLED */
+.flash-container .flash-message.flash-disabled .flash-progress {
+    background-color: rgba(170, 170, 170, 0.15);
+}
+.flash-container .flash-message.flash-disabled:before {
+    background-color: #aaa;
+}
+.flash-container .flash-message.flash-disabled:after {
+    color: rgba(170, 170, 170, 0.5);
+    content: '\e80f';
+    font-family: "tme-fa-icons";
+}
+/* DEFAULT */ 
+.flash-container .flash-message.flash-default {
+    padding-right: 20px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+/* MEDIA */
+@media all and (max-width: 1280px) {
+    .flash-container {
+        max-width: 33.33%;
+   }
+}
+@media all and (max-width: 768px) {
+    .flash-container {
+        max-width: 50%;
+   }
+}
+@media all and (max-width: 480px) {
+    .flash-container {
+        right: 10px;
+        left: 10px;
+        max-width: 100%;
+   }
+}
+/* FLASH JS DARK THEME */
+.flash-container .flash-message.dark-theme {
+    background-color: #2C3433;
+    color: #fff;
+}
+.flash-container .flash-message.dark-theme .flash-progress {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+a.link-external:after {
+    content: none;
+}
+
+.storycaption {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Cinzel', serif;
+  margin: 30px auto;
+  max-width: 600px;
+  color: #000;
+}
+
+#menu-item-saves, #menu-item-restart {
+	display: none;
+}
+
+.caption-text {
+  font-size: 18px;
+  color: #000;
+  margin: 0;
+}
+
+.contact-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #e1bee7;
+}
+
+.contact-link i {
+  margin-right: 8px;
+}
+
+.conclusion-container {
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(248, 241, 228, 0.95), rgba(248, 241, 228, 0.9));
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'EB Garamond', serif;
+  color: #3B3B3B;
+  margin: 20px auto;
+  max-width: 800px;
+  z-index: 5;
+}
+
+.conclusion-container h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8em;
+  color: #A67B5B; /* Coklat Keemasan */
+  border-bottom: 2px solid rgba(166, 123, 91, 0.8);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.conclusion-container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.conclusion-container .note {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3em;
+  color: #A67B5B;
+  background-color: rgba(255, 250, 240, 0.8);
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px dashed rgba(166, 123, 91, 0.6);
+  margin-top: 20px;
+}
+
+.page-of-swords-container span.highlight {
+  background-color: rgba(200, 220, 240, 0.6);
+  padding: 0.2em 0.4em;
+  color: black;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.page-of-swords-container span.highlight:hover {
+  background-color: rgba(200, 220, 240, 0.8);
+}
+
+.stack-container button {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Container utama untuk halaman Page of Swords */
+.page-of-swords-container {
+  background: linear-gradient(135deg, rgba(220,230,240,0.3), rgba(255,255,255,0.4));
+  padding: 30px;
+  border-radius: 12px;
+  font-family: 'Merriweather', serif;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+/* Judul utama */
+.page-of-swords-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.4em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f3a5a; /* Biru gelap yang tegas */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Garis horizontal pembatas */
+.page-of-swords-divider {
+  border: none;
+  border-top: 2px solid rgba(150, 150, 150, 0.5);
+  margin: 20px auto;
+  width: 80%;
+}
+
+.page-of-swords-subtitle {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8em;
+  color: #1f3a5a;
+  margin: 20px 0 10px;
+}
+
+/* Styling untuk paragraf umum */
+.page-of-swords-container p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Styling untuk daftar poin */
+.page-of-swords-container ul {
+  list-style-type: disc;
+  margin: 10px 0 10px 20px;
+  padding-left: 10px;
+}
+
+.page-of-swords-container li {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.point-title2 {
+  display: block;
+  background: rgba(248, 241, 228, 0.8);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8em;
+  color: #A67B5B; /* Coklat Keemasan */
+  margin: 20px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid rgba(166,123,91,0.8);
+}
+
+/* Styling untuk daftar poin */
+.point-list2 {
+  background: rgba(248, 241, 228, 0.8);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1em;
+  margin: 8px 0;
+  padding-left: 20px;
+  line-height: 1.6;
+  color: #3B3B3B;
+}
+
+/* Styling khusus untuk highlight dalam poin */
+.point-list2.highlight2,
+.point-title2 .highlight2 {
+  background-color: rgba(166,123,91,0.8);
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+body.dua {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Container textbox untuk reading */
+.textbox2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #3B3B3B;
+  background: linear-gradient(120deg, rgba(248,241,228,0.8) 0%, rgba(248,241,228,0.4) 100%);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.highlight2 {
+  background-color: rgba(166,123,91,0.2);
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Container judul */
+.title-container {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5em;
+  text-align: center;
+  margin: 30px 0;
+  color: #333;
+  background: linear-gradient(to right, transparent, rgba(248, 241, 228, 0.8), transparent);
+  padding: 20px;
+}
+
+/* Styling untuk teks "The Empress" dengan efek glow */
+.glow-empress {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border: 2px solid #A67B5B; /* Warna Coklat Keemasan */
+  border-radius: 8px;
+  color: #A67B5B;
+  background: rgba(255, 250, 240, 0.8);
+  text-shadow: 0 0 8px rgba(166, 123, 91, 0.8);
+  box-shadow: 0 0 10px rgba(166, 123, 91, 0.8);
+  animation: glow2 1.5s ease-in-out infinite alternate;
+}
+
+/* Animasi glow */
+@keyframes glow2 {
+  from {
+    box-shadow: 0 0 10px rgba(166, 123, 91, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(166, 123, 91, 1);
+  }
+}
+
+.stack-container {
+    position: relative; /* Biar tooltip tidak ketutupan */
+    z-index: 1;
+}
+
+.zodiac {
+    position: relative;
+    color: #8a2be2;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px dashed #8a2be2;
+    transition: color 0.2s ease-in-out;
+    z-index: 1000; /* Pastikan tetap di atas */
+}
+
+.zodiac:hover {
+    color: #ff69b4;
+    width: 100px;
+    display: contents;
+}
+
+.zodiac::after {
+    content: attr(data-tooltip);
+    position: absolute; /* Dari fixed jadi absolute */
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    max-width: 250px;
+    white-space: normal;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    pointer-events: none;
+    top: -40px; /* Naik ke atas */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Supaya muncul di atas */
+}
+
+.zodiac:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Saat hover, tooltip muncul */
+.zodiac:hover::after,
+.zodiac:hover::before {
+    opacity: 1;
+    visibility: visible;
+  	z-index: 999;
+}
+
+.point-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    background: linear-gradient(90deg, rgba(138, 43, 226, 0.8), rgba(255, 255, 255, 0.2));
+    border-radius: 8px;
+    text-shadow: 0px 0px 5px rgba(138, 43, 226, 0.9);
+}
+
+.point-list {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 10px 15px;
+    margin: 10px 0;
+    list-style: none;
+    border-radius: 8px;
+    position: relative;
+    background: rgba(138, 43, 226, 0.5);
+    border-left: 4px solid #8a2be2;
+    transition: 0.3s ease-in-out;
+    overflow: visible !important; /* Biar tooltip nggak kepotong */
+  	color: black;
+}
+
+
+.point-list::before {
+    position: absolute;
+    left: 10px;
+    color: #8a2be2;
+    font-size: 1.2em;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.point-list:hover {
+    background: rgba(138, 43, 226, 0.7);
+    border-left: 4px solid #ff69b4;
+    transform: translateX(5px);
+}
+
+.point-list:hover::before {
+    transform: scale(1.2);
+    color: #ff69b4;
+}
+
+/* Untuk highlight */
+.point-list.highlight {
+    background: rgba(255, 105, 180, 0.5);
+    border-left: 4px solid #ff69b4;
+    font-weight: bold;
+  	color: black;
+}
+
+.highlight {
+    color: #fff;
+    background: linear-gradient(90deg, rgba(138, 43, 226, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    padding: 2px 6px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(138, 43, 226, 0.8);
+    transition: transform 0.2s ease-in-out;
+}
+
+.highlight:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 12px rgba(138, 43, 226, 1);
+}
+
+
+.voice-note-container {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.voice-note-btn img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s;
+    filter: drop-shadow(0px 0px 8px rgba(138, 43, 226, 0.7));
+}
+
+/* Efek Hover */
+.voice-note-btn:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 12px rgba(138, 43, 226, 1));
+}
+
+/* 🎴 Banner dengan Efek Fade */
+.banner {
+    background: rgba(138, 43, 226, 0.75); /* Violet dengan 75% opacity */
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    
+    /* Efek Gradien Transparan di Samping */
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), black 20%, black 80%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), black 20%, black 80%, rgba(0, 0, 0, 0));
+}
+
+/* 🔮 Efek Cahaya Bergerak */
+@keyframes glow {
+    0% { box-shadow: 0px 0px 10px 2px rgba(138, 43, 226, 0.75); }
+    50% { box-shadow: 0px 0px 20px 4px rgba(138, 43, 226, 1); }
+    100% { box-shadow: 0px 0px 10px 2px rgba(138, 43, 226, 0.75); }
+}
+
+.banner {
+    animation: glow 3s infinite alternate;
+}
+
+
+
+/* 🌌 Efek Background */
+body.satu {
+    background: linear-gradient(to bottom, #0d0d0d, #3a2753); /* Gelap ke ungu */
+    color: #f5f5f5;
+    font-family: "Cinzel", serif; /* Font bernuansa mistis */
+}
+
+/* 🔮 Efek Glitch pada Judul */
+.glitch {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
+    50% { text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff; }
+    100% { text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container utama */
+.stack-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Kartu ketika berubah ke posisi kecil di sudut */
+.tarot-card.small-corner, .tarot-card2.small-corner, .tarot-card3.small-corner {
+  position: fixed;
+  bottom: 20px;    /* Jarak 20px dari bawah layar */
+  right: 20px;     /* Jarak 20px dari kanan layar */
+  top: auto;
+  left: auto;
+  width: 150px;    /* Ukuran dikurangi, misal setengah */
+  height: 225px;
+  transform: none; /* Hapus transform centering */
+}
+
+.tarot-card, .tarot-card2, .tarot-card3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 450px;
+  perspective: 1000px;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.8s ease-in-out;  /* Animasi transisi */
+}
+
+.card-inner, .card-inner2, .card-inner3 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.tarot-card.flipped .card-inner, .tarot-card2.flipped .card-inner2, .tarot-card3.flipped .card-inner3 {
+  transform: rotateY(180deg);
+}
+
+.fool-front, .empress-front, .empress-back, .fool-back, .pageofswords-back, .pageofswords-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fool-front {
+  background: url('image/The Fool.jpg') center/cover no-repeat;
+  transform: rotateY(180deg);
+}
+
+.fool-back, .empress-back, .pageofswords-back {
+  background: url('image/back.webp') center/cover no-repeat;
+}
+
+.pageofswords-front {
+  background: url('image/Page of Swords.jpg') center/cover no-repeat;
+  transform: rotateY(180deg);
+}
+
+.empress-front {
+  background: url('image/The Empress.jpg') center/cover no-repeat;
+  transform: rotateY(180deg);
+}
+
+/* Tombol reading-btn di bagian bawah kartu */
+.reading-btn {
+  display: inline-block;
+  position: absolute;
+  bottom: 20px;   /* posisi akhir tombol */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* posisi awal sedikit di atas */
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #E6D2A3, #C4A77D);
+  border: 2px solid #8B5A2B;
+  border-radius: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #4A3F35;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  opacity: 0; /* awalnya tersembunyi */
+  width: auto;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect untuk reading-btn */
+.reading-btn:hover {
+  transform: translateX(-50%) translateY(-10px) scale(1.05);
+  background: linear-gradient(180deg, #C4A77D, #8B5A2B);
+}
+
+/* Animasi slideDown & fadeIn untuk reading-btn ketika kartu di-flip */
+.tarot-card.flipped .fool-front .reading-btn, .tarot-card2.flipped .empress-front .reading-btn, .tarot-card3.flipped .pageofswords-front .reading-btn {
+  animation: slideDown 0.8s forwards ease-out 0.3s;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.reading-btn {
+    display: inline-block;
+    position: absolute;
+    bottom: -64px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-30px);
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D);
+    border: 2px solid #8B5A2B;
+    border-radius: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4A3F35;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    width: 313px;
+}
+
+.spread-title {
+    font-size: 29px;
+    font-family: 'Cinzel Decorative', cursive;
+  	font-weight: bold;
+    color: #D4AF37; /* Gold */
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.85);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-box {
+    position: relative !important;
+    animation: fadeIn 1s ease-in-out;
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D); /* Gradasi krem & emas */
+    border: 3px solid #8B5A2B; /* Garis tepi emas klasik */
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #4A3F35;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+    position: relative;
+  	border: 4px solid #8B4513; /* Dark Brown */
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(139, 69, 19, 0.7);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+    overflow: auto; /* Pastikan bisa scroll */
+}
+
+.question-box p {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #FFD700;
+}
+
+
+/* Efek glow mistis */
+.question-box::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: glowingBox 1.5s infinite alternate ease-in-out;
+}
+
+/* Animasi Glow */
+@keyframes glowingBox {
+    0% { box-shadow: 0 0 8px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 18px rgba(255, 215, 0, 1); }
+}
+
+/* Efek Fade In */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#story {
+  margin: 0!important;
+  padding: 0!important;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.question-box {
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+body.satu {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.stack-container {
+  flex: 1;
+  width: 100%;
+}
+
+/* Gaya "Q" Klasik */
+.q-icon {
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    font-size: 90px;
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #8B0000; /* Merah marun tua */
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    transform: rotate(-10deg);
+}
+
+/* Desain Button: Antik & Klasik */
+button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4A3F35; /* Warna coklat tua ala tinta kuno */
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D); /* Gradasi krem & emas */
+    border: 2px solid #8B5A2B; /* Garis tepi emas klasik */
+    border-radius: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  	z-index: 10;
+}
+
+/* Efek Hover */
+button:hover {
+    background: linear-gradient(180deg, #C4A77D, #8B5A2B);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fancy-underline {
+    display: inline-block;
+    position: relative;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: #D4AF37; /* Emas */
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+.fancy-underline::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    margin-top: 5px;
+    border-radius: 50px;
+}
+
+.scroll-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.8), 0 0 10px rgba(90, 74, 66, 0.5);
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeInGlow 2.5s ease-in-out forwards, shimmerGlow 4s infinite alternate ease-in-out;
+}
+
+/* Efek fade in */
+@keyframes fadeInGlow {
+    0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Efek cahaya halus */
+@keyframes shimmerGlow {
+    0% { text-shadow: 0 0 5px rgba(212, 175, 55, 0.6), 0 0 10px rgba(90, 74, 66, 0.3); }
+    100% { text-shadow: 0 0 10px rgba(212, 175, 55, 1), 0 0 15px rgba(90, 74, 66, 0.7); }
+}
+.scroll-container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: url('image/scroll.jpg') no-repeat center center / cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2c1d1d;
+    opacity: 0;
+    animation: fadeInScroll 2s ease-in-out forwards;
+  	top: 190px;
+}
+
+@keyframes fadeInScroll {
+    0% { opacity: 0; transform: scaleY(0); }
+    100% { opacity: 1; transform: scaleY(1); }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: scroll!important;
+}
+
+.container {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 101vh;
+}
+
+.container img, .container video {
+    position: absolute;
+    width: 100%;
+    height: 101%;
+    min-width: 100vw;
+    min-height: 101vh;
+    object-fit: cover;
+}
+
+.container video {
+    transform: translateZ(0);
+}
+
+.container img {
+  position: absolute!important;
+  mix-blend-mode: screen;
+  background-size: cover;
+  top: -10px;
+}
+
+.container video {
+  position: inherit;
+  background-repeat: repeat;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+
+.container video:nth-child(2) {
+  mix-blend-mode: screen;
+}
+
+.textbox {
+    background: rgba(30, 10, 50, 0.8); /* Dark purple transparan */
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    color: white;
+    text-align: justify;
+    line-height: 1.8;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(138, 43, 226, 0.5);
+    border-left: 3px solid rgba(138, 43, 226, 0.8);
+    border-right: 3px solid rgba(138, 43, 226, 0.8);
+}
+
+/* 🎴 Banner dengan Efek Fade */
+.banner {
+    background: rgba(138, 43, 226, 0.75); /* Violet dengan 75% opacity */
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    
+    /* Efek Gradien Transparan di Samping */
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), black 20%, black 80%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), black 20%, black 80%, rgba(0, 0, 0, 0));
+}
+
+/* 🔮 Efek Cahaya Bergerak */
+@keyframes glow {
+    0% { box-shadow: 0px 0px 10px 2px rgba(138, 43, 226, 0.75); }
+    50% { box-shadow: 0px 0px 20px 4px rgba(138, 43, 226, 1); }
+    100% { box-shadow: 0px 0px 10px 2px rgba(138, 43, 226, 0.75); }
+}
+
+.banner {
+    animation: glow 3s infinite alternate;
+}
+
+.fool-front,
+.fool-back {
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.tarot-card {
+    z-index: 100;
+}
+
+#reading-text {
+    pointer-events: none;
+}
+
+
+/* 🌌 Efek Background */
+body.satu {
+    background: linear-gradient(to bottom, #0d0d0d, #3a2753); /* Gelap ke ungu */
+    color: #f5f5f5;
+    font-family: "Cinzel", serif; /* Font bernuansa mistis */
+}
+
+/* 🔮 Efek Glitch pada Judul */
+.glitch {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
+    50% { text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff; }
+    100% { text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container utama */
+.stack-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.tarot-card.small-corner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  top: auto;
+  left: auto;
+  width: 150px;
+  height: 225px;
+  /* Hindari mengatur transform: none jika memungkinkan, atau pastikan flip bisa override-nya */
+}
+
+
+/* Posisi kartu tetap di tengah */
+.tarot-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 450px;
+  perspective: 1000px;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.8s ease-in-out;  /* Animasi transisi */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+/* Efek flip (jika diperlukan, tapi nanti tombol akan diklik untuk menghilangkan kartu) */
+.tarot-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Konsistensi styling untuk kedua sisi kartu */
+.fool-front,
+.fool-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Sisi depan (The Fool) – disembunyikan secara default dengan rotasi */
+.fool-front {
+  background: url('image/The Fool.jpg') center/cover no-repeat;
+  transform: rotateY(180deg);
+}
+
+/* Sisi belakang – yang tampil default */
+.fool-back {
+  background: url('image/back.webp') center/cover no-repeat;
+}
+
+/* Tombol reading-btn di bagian bawah kartu */
+.reading-btn {
+  display: inline-block;
+  position: absolute;
+  bottom: 20px;   /* posisi akhir tombol */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* posisi awal sedikit di atas */
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #E6D2A3, #C4A77D);
+  border: 2px solid #8B5A2B;
+  border-radius: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #4A3F35;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  opacity: 0; /* awalnya tersembunyi */
+  width: auto;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect untuk reading-btn */
+.reading-btn:hover {
+  transform: translateX(-50%) translateY(-10px) scale(1.05);
+  background: linear-gradient(180deg, #C4A77D, #8B5A2B);
+}
+
+/* Animasi slideDown & fadeIn untuk reading-btn ketika kartu di-flip */
+.tarot-card.flipped .fool-front .reading-btn {
+  animation: slideDown 0.8s forwards ease-out 0.3s;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.reading-btn {
+    display: inline-block;
+    position: absolute;
+    bottom: -64px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-30px);
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D);
+    border: 2px solid #8B5A2B;
+    border-radius: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4A3F35;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    width: 313px;
+}
+
+/* Saat kartu di-flip, animasi slideDown dijalankan */
+.tarot-card.flipped .fool-front .reading-btn {
+  animation: slideDown 0.8s forwards ease-out 0.3s;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+
+.spread-title {
+    font-size: 29px;
+    font-family: 'Cinzel Decorative', cursive;
+  	font-weight: bold;
+    color: #D4AF37; /* Gold */
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.85);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-box {
+    position: relative !important;
+    animation: fadeIn 1s ease-in-out;
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D); /* Gradasi krem & emas */
+    border: 3px solid #8B5A2B; /* Garis tepi emas klasik */
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #4A3F35;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+    position: relative;
+  	border: 4px solid #8B4513; /* Dark Brown */
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(139, 69, 19, 0.7);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+    overflow: auto; /* Pastikan bisa scroll */
+}
+
+.question-box p {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #FFD700;
+}
+
+
+/* Efek glow mistis */
+.question-box::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: glowingBox 1.5s infinite alternate ease-in-out;
+}
+
+/* Animasi Glow */
+@keyframes glowingBox {
+    0% { box-shadow: 0 0 8px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 18px rgba(255, 215, 0, 1); }
+}
+
+/* Efek Fade In */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#story {
+  margin: 0!important;
+  padding: 0!important;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.question-box {
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+body.satu {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.stack-container {
+  flex: 1;
+  width: 100%;
+}
+
+/* Gaya "Q" Klasik */
+.q-icon {
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    font-size: 90px;
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #8B0000; /* Merah marun tua */
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    transform: rotate(-10deg);
+}
+
+/* Desain Button: Antik & Klasik */
+button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4A3F35; /* Warna coklat tua ala tinta kuno */
+    background: linear-gradient(180deg, #E6D2A3, #C4A77D); /* Gradasi krem & emas */
+    border: 2px solid #8B5A2B; /* Garis tepi emas klasik */
+    border-radius: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  	z-index: 10;
+}
+
+/* Efek Hover */
+button:hover {
+    background: linear-gradient(180deg, #C4A77D, #8B5A2B);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fancy-underline {
+    display: inline-block;
+    position: relative;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: #D4AF37; /* Emas */
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+.fancy-underline::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    margin-top: 5px;
+    border-radius: 50px;
+}
+
+.scroll-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.8), 0 0 10px rgba(90, 74, 66, 0.5);
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeInGlow 2.5s ease-in-out forwards, shimmerGlow 4s infinite alternate ease-in-out;
+}
+
+/* Efek fade in */
+@keyframes fadeInGlow {
+    0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Efek cahaya halus */
+@keyframes shimmerGlow {
+    0% { text-shadow: 0 0 5px rgba(212, 175, 55, 0.6), 0 0 10px rgba(90, 74, 66, 0.3); }
+    100% { text-shadow: 0 0 10px rgba(212, 175, 55, 1), 0 0 15px rgba(90, 74, 66, 0.7); }
+}
+.scroll-container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: url('image/scroll.jpg') no-repeat center center / cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2c1d1d;
+    opacity: 0;
+    animation: fadeInScroll 2s ease-in-out forwards;
+  	top: 190px;
+}
+
+,@keyframes fadeInScroll {
+    0% { opacity: 0; transform: scaleY(0); }
+    100% { opacity: 1; transform: scaleY(1); }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: scroll!important;
+}
+
+.container {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 101vh;
+}
+
+.container img, .container video {
+    position: absolute;
+    width: 100%;
+    height: 101%;
+    min-width: 100vw;
+    min-height: 101vh;
+    object-fit: cover;
+}
+
+.container video {
+    transform: translateZ(0);
+}
+
+.container img {
+  position: absolute!important;
+  mix-blend-mode: screen;
+  background-size: cover;
+  top: -10px;
+}
+
+.container video {
+  position: inherit;
+  background-repeat: repeat;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+
+.container video:nth-child(2) {
+  mix-blend-mode: screen;
+}
+
+.textbox {
+    background: rgba(30, 10, 50, 0.8); /* Dark purple transparan */
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    color: white;
+    text-align: justify;
+    line-height: 1.8;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(138, 43, 226, 0.5);
+    border-left: 3px solid rgba(138, 43, 226, 0.8);
+    border-right: 3px solid rgba(138, 43, 226, 0.8);
+
+    /* Efek Glowing */
+    animation: glowBox 2.5s infinite alternate;
+}
+
+/* ✨ Animasi Cahaya */
+@keyframes glowBox {
+    0% { box-shadow: 0px 0px 10px rgba(138, 43, 226, 0.5); }
+    100% { box-shadow: 0px 0px 25px rgba(138, 43, 226, 0.9); }
+}
+
+
+
+.tarot-welcome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(147, 112, 219, 0.6); 
+    opacity: 0;
+    animation: fadeInGlow 3s ease-in-out forwards, pulseGlow 5s infinite alternate ease-in-out;
+
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.4); /* Putih Transparan */
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Efek Blur */
+}
+
+@keyframes fadeInGlow {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(147, 112, 219, 0.6); }
+    100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(147, 112, 219, 1); }
+}
+
+@keyframes fadeInBounce {
+            0% { opacity: 0; transform: translateY(-10px); }
+            50% { opacity: 0.5; transform: translateY(5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+          	color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #5D4157, #A8CABA);
+            font-family: 'Arial', sans-serif;
+        }
+        .card-container {
+            perspective: 1000px;
+          	transform: translateX(28%) translateY(130px);
+        }
+        .card {
+            width: 400px;
+            height: 320px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform-style: preserve-3d;
+    		transition: opacity 1.5s ease-in-out, transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+.card:hover {
+    transform: scale(1.02) rotate(0.5deg);
+}
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        .card-front {
+            background-image: url("image/frontcard.jpg");
+          	background-size: cover;
+          	background-repeat: no-repeat;
+        }
+.halo-banner {
+  	font-family: 'Cinzel Decorative', serif;
+    position: relative;
+    padding: 15px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 150px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 
+                0 0 30px rgba(100, 100, 255, 0.2); /* Efek aura glowing */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Efek shimmer animasi di border */
+@keyframes shimmer {
+    0% { border-color: rgba(255, 255, 255, 0.5); }
+    50% { border-color: rgba(100, 100, 255, 0.8); }
+    100% { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+.halo-banner::after {
+    content: "";
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border-radius: 150px;
+    border: 3px solid transparent;
+    animation: shimmer 3s infinite alternate;
+}
+        .halo-text {
+            font-size: 18px;
+            font-style: italic;
+            animation: fadeInBounce 2s ease-in-out;
+        }
+
+.card-back {
+    background-image: url("image/tekstur.jpg");
+  	background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; /* Sesuaikan ukuran sesuai kebutuhan */
+    color: #4a2c2a; /* Warna earthy untuk kesan warm */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: rotateY(180deg);
+    transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* Saat kartu terbuka */
+.card.flipped .card-back {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+/* Styling tombol */
+.card-back button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background: #9c6b4a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-back button:hover {
+    background: #b47c5b;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* FLASH JS THEME VARIABLES */
+.flash-container {
+    z-index: 1000;
+    max-width: 25%;
+    position: fixed;
+}
+.top-left-flash-layout {
+    top: 75px;
+    left: 15px;
+}
+.top-right-flash-layout {
+    top: 75px;
+    right: 15px;
+}
+.middle-right-flash-layout {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+.bottom-right-flash-layout {
+    bottom: 75px;
+    right: 15px;
+}
+.middle-bottom-flash-layout {
+    bottom: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom-left-flash-layout {
+    bottom: 75px;
+    left: 15px;
+}
+.middle-left-flash-layout {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+.middle-top-flash-layout {
+    top: 75px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* FLASHJS - DEFAULT THEME */
+.flash-container .flash-message {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all .5s;
+    background-color: #fff;
+    color: #2C3433;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-bottom: 10px;
+    padding: 5px 35px 5px 20px;
+    box-shadow: 2px 2px 33px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+    cursor: pointer;
+}
+.flash-container .flash-message .flash-text {
+    font-size: 1em;
+}
+.flash-container .flash-not-interactive {
+    cursor: default;
+}
+.flash-container .flash-message .flash-progress {
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: opacity .1s;
+}
+.flash-container .flash-message .flash-progress.flash-is-hidden {
+    opacity: 0;
+}
+.flash-container .flash-message .flash-progress.flash-progress-top {
+    top: 0;
+    bottom: auto;
+}
+.flash-container .flash-message:before {
+    position: absolute;
+    content: '';
+    width: 7px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: -7px;
+    background-color: transparent;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.flash-container .flash-message:after {
+    position: absolute;
+    content: '';
+    font-family: 'tme-fa-icons';
+    top: 5px;
+    right: 8px;
+    text-align: center;
+    vertical-align: middle;
+    color: #9e9e9e;
+}
+.flash-container .flash-message.flash-is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* SUCCESS */
+.flash-container .flash-message.flash-success .flash-progress {
+    background-color: rgba(76, 175, 80, 0.15);
+}
+.flash-container .flash-message.flash-success:before {
+    background-color: #4CAF50;
+}
+.flash-container .flash-message.flash-success:after {
+    color: rgba(76, 175, 80, 0.5);
+    content: '\e803';
+}
+/* WARNING */
+.flash-container .flash-message.flash-warning .flash-progress {
+    background-color: rgba(255, 133, 27, 0.15);
+}
+.flash-container .flash-message.flash-warning:before {
+    background-color: #FF851B;
+}
+.flash-container .flash-message.flash-warning:after {
+    color: rgba(255, 133, 27, 0.5);
+    content: '\e80d';
+}
+/* ERROR */
+.flash-container .flash-message.flash-error .flash-progress {
+    background-color: rgba(255, 65, 54, 0.15);
+}
+.flash-container .flash-message.flash-error:before {
+    background-color: #FF4136;
+}
+.flash-container .flash-message.flash-error:after {
+    color: rgba(255, 65, 54, 0.5);
+    content: '\e80c';
+}
+/* INFO */
+.flash-container .flash-message.flash-info .flash-progress {
+    background-color: rgba(0, 116, 217, 0.15);
+}
+.flash-container .flash-message.flash-info:before {
+    background-color: #0074D9;
+}
+.flash-container .flash-message.flash-info:after {
+    color: rgba(0, 116, 217, 0.5);
+    content: '\e80a';
+}
+/* BUG */ 
+.flash-container .flash-message.flash-bug .flash-progress {
+    background-color: rgba(138, 43, 226, 0.15);
+}
+.flash-container .flash-message.flash-bug:before {
+    background-color: #8A2BE2;
+}
+.flash-container .flash-message.flash-bug:after {
+    color: rgba(138, 43, 226, 0.5);
+    content: '\e838';
+}
+/* DISABLED */
+.flash-container .flash-message.flash-disabled .flash-progress {
+    background-color: rgba(170, 170, 170, 0.15);
+}
+.flash-container .flash-message.flash-disabled:before {
+    background-color: #aaa;
+}
+.flash-container .flash-message.flash-disabled:after {
+    color: rgba(170, 170, 170, 0.5);
+    content: '\e80f';
+    font-family: "tme-fa-icons";
+}
+/* DEFAULT */ 
+.flash-container .flash-message.flash-default {
+    padding-right: 20px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+/* MEDIA */
+@media all and (max-width: 1280px) {
+    .flash-container {
+        max-width: 33.33%;
+   }
+}
+@media all and (max-width: 768px) {
+    .flash-container {
+        max-width: 50%;
+   }
+}
+@media all and (max-width: 480px) {
+    .flash-container {
+        right: 10px;
+        left: 10px;
+        max-width: 100%;
+   }
+}
+/* FLASH JS DARK THEME */
+.flash-container .flash-message.dark-theme {
+    background-color: #2C3433;
+    color: #fff;
+}
+.flash-container .flash-message.dark-theme .flash-progress {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+    animation: glowBox 2.5s infinite alternate;
+}
+
+/* ✨ Animasi Cahaya */
+@keyframes glowBox {
+    0% { box-shadow: 0px 0px 10px rgba(138, 43, 226, 0.5); }
+    100% { box-shadow: 0px 0px 25px rgba(138, 43, 226, 0.9); }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .tarot-card.small-corner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+    width: 90px;
+    height: 165px;
+    transform: none;
+  }
+  
+  #story {
+    width: 93vw;
+  }
+  
+.card-container {
+  top: -130px;
+  left: -50px; 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+    position: fixed;
+    transform: none;
+  }  
+  .halo-banner {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    border-radius: 80px !important;
+  }
+  
+  .tarot-welcome {
+    font-size: 1.2rem !important;
+    padding: 6px 10px !important;
+  }
+  
+  .halo-text {
+    font-size: 18px !important;
+  }
+  
+  /* Hapus transform translate(-50%, -50%) agar tidak konflik dengan flip */
+  .card-front, .card-back {
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
